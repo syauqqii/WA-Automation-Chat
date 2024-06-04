@@ -1,6 +1,6 @@
 const delay = require('../helpers/delay');
 const { successResponse, errorResponse } = require('../helpers/responses');
-const DEBUG = process.env.DEBUG;
+const DEBUG = parseInt(process.env.DEBUG) === 1;
 
 exports.sendMessages = async (client, phoneNumber, messageText) => {
     if (Array.isArray(phoneNumber)) {

@@ -1,5 +1,5 @@
 const waService = require('../services/waService');
-const DEBUG = process.env.DEBUG;
+const DEBUG = parseInt(process.env.DEBUG) === 1;
 
 exports.sendMessage = async (client, req, res) => {
     const { phoneNumber, messageText } = req.body;

@@ -1,11 +1,11 @@
 const wa = require('@open-wa/wa-automate');
-const DEBUG = process.env.DEBUG;
+const DEBUG = parseInt(process.env.DEBUG) === 1;
 
 exports.initializeWAClient = () => {
     return wa.create({
         sessionId: process.env.SESSION_NAME || 'WA Automation Chat',
         multiDevice: true,
-        authTimeout: 60,
+        authTimeout: 0,
         blockCrashLogs: true,
         disableSpins: true,
         headless: true,
@@ -13,7 +13,7 @@ exports.initializeWAClient = () => {
         logConsole: false,
         popup: true,
         qrTimeout: 0,
-        killProcessOnBrowserClose: true,
+        // killProcessOnBrowserClose: true,
         useStealth: true,
         chromiumArgs: ['--no-sandbox', '--disable-setuid-sandbox']
     
