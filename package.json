@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@open-wa/wa-automate": "^4.71.11",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.0"
+  }
+}

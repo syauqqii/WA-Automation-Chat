@@ -1,0 +1,5 @@
+# Ignore f*c*ing node_modules directory
+node_modules/
+
+# Ignore f*c*ing Node Persist directory
+.node-persist/
