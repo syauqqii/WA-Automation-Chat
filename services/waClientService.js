@@ -1,39 +1,39 @@
-const wa = require('@open-wa/wa-automate');
+const { Client, LocalAuth } = require('whatsapp-web.js');
+const qrcode = require('qrcode-terminal');
 const DEBUG = parseInt(process.env.DEBUG) === 1;
 
 exports.initializeWAClient = () => {
-    return wa.create({
-        sessionId: process.env.SESSION_NAME || 'WA Automation Chat',
-        multiDevice: true,
-        authTimeout: 0,
-        blockCrashLogs: true,
-        disableSpins: true,
-        headless: true,
-        hostNotificationLang: 'PT_BR',
-        logConsole: false,
-        popup: true,
-        qrTimeout: 0,
-        // killProcessOnBrowserClose: true,
-        useStealth: true,
-        chromiumArgs: ['--no-sandbox', '--disable-setuid-sandbox']
-    
-        // [ EXPERIMENTAL SETTING (syauqi) ]
-        // cacheEnabled: false,
-        // useChrome: true,
-        // throwErrorOnTosBlock: false,
-        // chromiumArgs: [
-        //     '--no-sandbox',
-        //     '--disable-setuid-sandbox',
-        //     '--aggressive-cache-discard',
-        //     '--disable-cache',
-        //     '--disable-application-cache',
-        //     '--disable-offline-load-stale-cache',
-        //     '--disk-cache-size=0'
-        // ]
-    }).catch(err => {
-        if (DEBUG) {
-            console.error('  - [waClientService] Error initializing WA client: ', err);
-        }
-        process.exit(1);
+    return new Promise((resolve, reject) => {
+        const client = new Client({
+            authStrategy: new LocalAuth(),
+            puppeteer: {
+                headless: true,
+                args: ['--no-sandbox', '--disable-setuid-sandbox']
+            }
+        });
+
+        client.on('qr', qr => {
+            qrcode.generate(qr, { small: true });
+            console.log('QR code received, scan it with your WhatsApp app.');
+        });
+
+        client.on('ready', () => {
+            console.log('Client is ready!');
+            resolve(client);
+        });
+
+        client.on('auth_failure', msg => {
+            console.error('Auth failure:', msg);
+            reject(new Error('Auth failure'));
+        });
+
+        client.on('error', error => {
+            if (DEBUG) {
+                console.error('Error in WA client:', error);
+            }
+            reject(error);
+        });
+
+        client.initialize();
     });
 };

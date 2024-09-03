@@ -13,12 +13,10 @@ const DEBUG = parseInt(process.env.DEBUG) === 1;
 
 app.use(cors());
 app.use(limiter);
+app.use(express.json());
 
-initializeWAClient().then(client => start(client));
-
-function start(client) {
-    app.use(express.json());
-
+initializeWAClient().then(client => {
+    app.locals.client = client;
     initRoutes(app, client);
 
     console.clear();
@@ -29,4 +27,4 @@ function start(client) {
             console.log(`\n > Server is running - http://${HOST}:${PORT}\n`);
         }
     });
-}
+});
