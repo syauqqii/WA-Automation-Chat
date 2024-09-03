@@ -3,7 +3,10 @@ const { MessageMedia } = require('whatsapp-web.js');
 
 const delay = require('../helpers/delay');
 const { successResponse, errorResponse } = require('../helpers/responses');
+
 const DEBUG = parseInt(process.env.DEBUG) === 1;
+const MIN_DELAY_EVERY_CHAT = parseInt(process.env.MIN_DELAY_EVERY_CHAT)
+const MAX_DELAY_EVERY_CHAT = parseInt(process.env.MAX_DELAY_EVERY_CHAT)
 
 exports.sendMessage = async (client, to, text) => {
     if (Array.isArray(to)) {
@@ -18,7 +21,7 @@ exports.sendMessage = async (client, to, text) => {
                 }
                 results.push(successResponse(num));
 
-                const delayTime = Math.floor(Math.random() * (5000 - 3000 + 1) + 3000);
+                const delayTime = Math.floor(Math.random() * ((MAX_DELAY_EVERY_CHAT * 1000) - (MIN_DELAY_EVERY_CHAT * 1000) + 1) + (MIN_DELAY_EVERY_CHAT * 1000));
                 await delay(delayTime);
             } catch (error) {
                 if (DEBUG) {
@@ -67,6 +70,9 @@ exports.sendMediaMessage = async (client, tos, text, mediaFilePath) => {
                     console.log(`  - [waService] Media message sent successfully to ${num}`);
                 }
                 results.push(successResponse(num));
+
+                const delayTime = Math.floor(Math.random() * ((MAX_DELAY_EVERY_CHAT * 1000) - (MIN_DELAY_EVERY_CHAT * 1000) + 1) + (MIN_DELAY_EVERY_CHAT * 1000));
+                await delay(delayTime);
             } catch (error) {
                 if (DEBUG) {
                     console.log(`  - [waService] Failed to send media message to ${num}: ${error}`);
