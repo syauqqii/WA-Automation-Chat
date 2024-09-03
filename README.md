@@ -9,11 +9,23 @@ Pastikan Anda memiliki Postman, Node.js, dan NPM yang terinstal sebelum menjalan
 - Menggunakan dotenv untuk mengelola variabel lingkungan.
 
 ## How to use
-1. Clone repository ini `git clone https://github.com/syauqqii/WA-Automation-Chat`
-2. Masuk ke directory WA-Automation-Chat : `cd WA-Automation-Chat`
-3. Instal dependensi menggunakan `npm install`.
+1. Clone repository ini
+```
+git clone https://github.com/syauqqii/WA-Automation-Chat
+```
+2. Masuk ke directory WA-Automation-Chat
+```
+cd WA-Automation-Chat
+```
+3. Instal dependensi menggunakan
+```
+npm install
+```
 4. Konfigurasi variabel dalam file `.env` (jika diperlukan).
-5. Jalankan aplikasi menggunakan `npm start`.
+5. Jalankan aplikasi menggunakan
+```
+npm start
+```
 6. Gunakan endpoint `/sendMessage` dan `/sendMessageMedia` untuk mengirim pesan WhatsApp.
 
 ## Endpoint + Params (Tested in Postman)
