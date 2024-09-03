@@ -14,24 +14,33 @@ exports.initializeWAClient = () => {
 
         client.on('qr', qr => {
             qrcode.generate(qr, { small: true });
-            console.log('QR code received, scan it with your WhatsApp app.');
+            console.log(' [Info] QR code received, scan it with your WhatsApp app.');
         });
 
         client.on('ready', () => {
-            console.log('Client is ready!');
+            console.log(' [Info] Client is ready!');
             resolve(client);
         });
 
         client.on('auth_failure', msg => {
-            console.error('Auth failure:', msg);
+            console.error(' [Error] Auth failure:', msg);
             reject(new Error('Auth failure'));
         });
 
         client.on('error', error => {
             if (DEBUG) {
-                console.error('Error in WA client:', error);
+                console.error(' [Error] Error in WA client:', error);
             }
             reject(error);
+        });
+
+        client.on('message', msg => {
+            if (msg.body == '.ping') {
+                if (DEBUG) {
+                    console.error(` - [waClientService] Ping from ${msg.from.split('@')[0]}`);
+                }
+                msg.reply('Aku marah!! 😡');
+            }
         });
 
         client.initialize();
