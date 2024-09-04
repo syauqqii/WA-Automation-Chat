@@ -1,4 +1,4 @@
-# WA Automation Chat
+# WhatsApp Automation: Customer Service AI with Gemini API & Backend Endpoint for Campaign Marketing
 _WA Automation Chat adalah sebuah proyek yang memanfaatkan ~~@open-wa/wa-automate~~ whatsapp-web.js untuk melakukan otomatisasi pesan WhatsApp. Proyek ini memungkinkan Anda untuk mengirim pesan WhatsApp secara otomatis menggunakan API Express._
 
 Pastikan Anda memiliki Postman, Node.js, dan NPM yang terinstal sebelum menjalankan proyek ini.
