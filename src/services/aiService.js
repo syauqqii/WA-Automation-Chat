@@ -14,9 +14,9 @@ async function aiService(prompt) {
         return response.text();
     } catch (error) {
         if (error instanceof GoogleGenerativeAIResponseError || error instanceof GoogleGenerativeAIError) {
-            console.error(" - [aiService] Error from Google Generative AI:", error.message);
+            console.error("  - [aiService] Error from Google Generative AI:", error.message);
         } else {
-            console.error(" - [aiService]An unexpected error occurred:", error.message);
+            console.error("  - [aiService]An unexpected error occurred:", error.message);
         }
         throw error;
     }

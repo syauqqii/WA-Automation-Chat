@@ -38,7 +38,7 @@ exports.sendMessage = async (client, to, text) => {
             await chat.sendMessage(text);
 
             if (DEBUG) {
-                console.log(`  - [waService] Message sent successfully to ${num}`);
+                console.log(`  - [waService] Message sent successfully to ${to}`);
             }
 
             return successResponse(to);
