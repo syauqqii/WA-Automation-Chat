@@ -10,6 +10,8 @@ Pastikan Anda memiliki Postman, Node.js, dan NPM yang terinstal sebelum menjalan
 - Menggunakan API Gemini AI untuk customer service jika dibutuhkan.
 
 ## How to use
+- [LINK VIDEO HERE](https://drive.google.com/file/d/1mb6Gpw3ecujCo18Rfj9OS0lqv6rfrBNE/view?usp=sharing)
+
 1. Clone repository ini
 ```
 git clone https://github.com/syauqqii/WA-Automation-Chat
