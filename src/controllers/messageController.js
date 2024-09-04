@@ -1,4 +1,4 @@
-const waService = require('../services/waService');
+const waService = require('../services/whatsappService');
 const DEBUG = parseInt(process.env.DEBUG) === 1;
 
 exports.sendMessage = async (client, req, res) => {

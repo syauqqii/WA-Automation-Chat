@@ -2,6 +2,8 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const DEBUG = parseInt(process.env.DEBUG) === 1;
 
+const { handleMessage } = require('./messageService');
+
 exports.initializeWAClient = () => {
     return new Promise((resolve, reject) => {
         const client = new Client({
@@ -34,12 +36,11 @@ exports.initializeWAClient = () => {
             reject(error);
         });
 
-        client.on('message', msg => {
-            if (msg.body == '.ping') {
-                if (DEBUG) {
-                    console.error(` - [waClientService] Ping from ${msg.from.split('@')[0]}`);
-                }
-                msg.reply('Aku marah!! 😡');
+        client.on('message', async (msg) => {
+            try {
+                await handleMessage(client, msg);
+            } catch (error) {
+                console.error('Error handling message:', error);
             }
         });
 

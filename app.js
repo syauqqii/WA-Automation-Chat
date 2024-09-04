@@ -2,10 +2,10 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const initRoutes = require('./routes/init');
-const { initializeWAClient } = require('./services/waClientService');
-const limiter = require('./middleware/rateLimiter');
-const { logRoutes } = require('./middleware/logRoute');
+const initRoutes = require('./src/routes/init');
+const { initializeWAClient } = require('./src/services/waClientService');
+const limiter = require('./src/middleware/rateLimiter');
+const { logRoutes } = require('./src/middleware/logRoute');
 
 const app = express();
 const HOST = process.env.HOST;
@@ -16,19 +16,20 @@ app.use(cors());
 app.use(limiter);
 app.use(express.json());
 
-console.log('\n [GENERATE] Waiting QR Code to scan... *(be patient)\n');
+console.clear();
+console.log('\n [INFORMATION] Checking your session... *(be patient)\n');
 
 initializeWAClient().then(client => {
     app.locals.client = client;
     initRoutes(app, client);
 
     console.clear();
-
     app.listen(PORT, () => {
         if (DEBUG) {
             console.log(`\n > [Info] Whatsapp number active: +${client.info.wid.user} (${client.info.pushname})`)
             console.log(`\n > [Info] Server is running: http://${HOST}:${PORT}`);
             console.log(logRoutes(app));
+            console.log(' > [Docs] URL: https://github.com/syauqqii/WA-Automation-Chat\n')
         } else {
             console.log(`\n > Server is running: http://${HOST}:${PORT}\n`);
         }
