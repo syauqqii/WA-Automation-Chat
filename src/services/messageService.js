@@ -1,12 +1,29 @@
 const getCurutCombo = require('./curutService');
+const aiService = require('./aiService');
+
 const PREFIX_COMMAND = process.env.PREFIX_COMMAND || '.';
 const DEBUG = parseInt(process.env.DEBUG) === 1;
+const IS_NEED_CS = parseInt(process.env.IS_NEED_CS) === 1
 
 const handleMessage = async (client, msg) => {
     const command = msg.body.trim();
     const fromNumber = msg.from.split('@')[0];
 
     if (!command.startsWith(PREFIX_COMMAND)) {
+        if (IS_NEED_CS) {
+            try {
+                if (DEBUG) {
+                    console.error(" - [messageService] AI service from " + fromNumber);
+                }
+                const aiResponse = await aiService(msg.body);
+                await client.sendMessage(msg.from, aiResponse);
+            } catch (error) {
+                if (DEBUG) {
+                    console.error(" - [messageService] Failed to process AI response:", error);
+                }
+                await client.sendMessage(msg.from, "Maaf, terjadi kesalahan saat memproses permintaan Anda.");
+            }
+        }
         return;
     }
 

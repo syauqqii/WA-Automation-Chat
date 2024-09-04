@@ -7,6 +7,7 @@ Pastikan Anda memiliki Postman, Node.js, dan NPM yang terinstal sebelum menjalan
 - Menggunakan ~~@open-wa/wa-automate~~ whatsapp-web.js untuk otomatisasi pesan WhatsApp.
 - Menggunakan Express dan mengimplementasikan express-rate-limit untuk membuat API dengan endpoint `/sendMessage` atau `/sendMessageMedia`.
 - Menggunakan dotenv untuk mengelola variabel lingkungan.
+- Menggunakan API Gemini AI untuk customer service jika dibutuhkan.
 
 ## How to use
 1. Clone repository ini
