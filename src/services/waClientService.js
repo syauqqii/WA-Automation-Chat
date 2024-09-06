@@ -31,7 +31,7 @@ exports.initializeWAClient = () => {
 
         client.on('error', error => {
             if (DEBUG) {
-                console.error(' [Error] Error in WA client:', error);
+                console.error('  - [waClientService] Error in WA client:', error);
             }
             reject(error);
         });
@@ -40,7 +40,7 @@ exports.initializeWAClient = () => {
             try {
                 await handleMessage(client, msg);
             } catch (error) {
-                console.error('Error handling message:', error);
+                console.error('  - [waClientService] Error handling message:', error);
             }
         });
 

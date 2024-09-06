@@ -15,7 +15,7 @@ async function getCurutCombo() {
         return `*Combo Curut* 🐀\n\n*Card:*\n${formattedCombo}\n\n*Date:*\n${date}\n\n*Expires:*\n${expiresFormatted}`;
     } catch (error) {
         if (DEBUG) {
-            console.error(` - [waService] Error fetching curut-combo: ${error.message}`);
+            console.error(`  - [curutService] Error fetching curut-combo: ${error.message}`);
         }
         return 'Failed to fetch curut-combo.';
     }

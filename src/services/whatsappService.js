@@ -17,7 +17,7 @@ exports.sendMessage = async (client, to, text) => {
                 await chat.sendMessage(text);
 
                 if (DEBUG) {
-                    console.log(`  - [waService] Message sent successfully to ${num}`);
+                    console.log(`  - [whatsappService] Message sent successfully to ${num}`);
                 }
                 results.push(successResponse(num));
 
@@ -25,7 +25,7 @@ exports.sendMessage = async (client, to, text) => {
                 await delay(delayTime);
             } catch (error) {
                 if (DEBUG) {
-                    console.log('  - [waService] Error sending message to ' + num + ': ' + error.message);
+                    console.log('  - [whatsappService] Error sending message to ' + num + ': ' + error.message);
                 }
                 results.push(errorResponse(num, 'Failed to send message: ' + error.message));
             }
@@ -38,13 +38,13 @@ exports.sendMessage = async (client, to, text) => {
             await chat.sendMessage(text);
 
             if (DEBUG) {
-                console.log(`  - [waService] Message sent successfully to ${to}`);
+                console.log(`  - [whatsappService] Message sent successfully to ${to}`);
             }
 
             return successResponse(to);
         } catch (error) {
             if (DEBUG) {
-                console.log('  - [waService] Error sending message to ' + to + ': ' + error.message);
+                console.log('  - [whatsappService] Error sending message to ' + to + ': ' + error.message);
             }
 
             return errorResponse(to, 'Failed to send message: ' + error.message);
@@ -67,7 +67,7 @@ exports.sendMediaMessage = async (client, tos, text, mediaFilePath) => {
                 await client.sendMessage(`${num}@c.us`, media, { caption: text });
 
                 if (DEBUG) {
-                    console.log(`  - [waService] Media message sent successfully to ${num}`);
+                    console.log(`  - [whatsappService] Media message sent successfully to ${num}`);
                 }
                 results.push(successResponse(num));
 
@@ -75,7 +75,7 @@ exports.sendMediaMessage = async (client, tos, text, mediaFilePath) => {
                 await delay(delayTime);
             } catch (error) {
                 if (DEBUG) {
-                    console.log(`  - [waService] Failed to send media message to ${num}: ${error}`);
+                    console.log(`  - [whatsappService] Failed to send media message to ${num}: ${error}`);
                 }
                 results.push(errorResponse(num, 'Failed to send media message: ' + error.message));
             }
@@ -87,12 +87,12 @@ exports.sendMediaMessage = async (client, tos, text, mediaFilePath) => {
             await client.sendMessage(`${tos}@c.us`, media, { caption: text });
 
             if (DEBUG) {
-                console.log(`  - [waService] Media message sent successfully to ${tos}`);
+                console.log(`  - [whatsappService] Media message sent successfully to ${tos}`);
             }
             results.push(successResponse(tos));
         } catch (error) {
             if (DEBUG) {
-                console.log(`  - [waService] Failed to send media message to ${tos}: ${error}`);
+                console.log(`  - [whatsappService] Failed to send media message to ${tos}: ${error}`);
             }
             results.push(errorResponse(tos, 'Failed to send media message: ' + error.message));
         }
@@ -102,7 +102,7 @@ exports.sendMediaMessage = async (client, tos, text, mediaFilePath) => {
         fs.unlinkSync(mediaFilePath);
     } else {
         if (DEBUG) {
-            console.log('  - [waService] Media file does not exist: ' + mediaFilePath);
+            console.log('  - [whatsappService] Media file does not exist: ' + mediaFilePath);
         }
     }
 

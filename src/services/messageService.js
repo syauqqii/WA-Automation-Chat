@@ -13,7 +13,7 @@ const handleMessage = async (client, msg) => {
         if (IS_NEED_CS) {
             try {
                 if (DEBUG) {
-                    console.error("  - [messageService] AI service from " + fromNumber);
+                    console.log("  - [messageService] AI service from " + fromNumber);
                 }
                 const aiResponse = await aiService(msg.body);
                 await client.sendMessage(msg.from, aiResponse);
@@ -32,7 +32,7 @@ const handleMessage = async (client, msg) => {
     switch (commandBody) {
         case 'ping':
             if (DEBUG) {
-                console.error(`  - [messageService] Ping from ${fromNumber}`);
+                console.log(`  - [messageService] Ping from ${fromNumber}`);
             }
             await msg.reply('Aku marah!! 😡');
             break;
