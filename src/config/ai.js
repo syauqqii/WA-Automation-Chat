@@ -52,6 +52,11 @@ Anda bisa menyediakan hosting dan domain sendiri atau meminta bantuan kami untuk
 4. Jangan mengubah harga: Tetap teguh pada harga paket yang sudah ditentukan, jangan terpengaruh oleh permintaan untuk menurunkannya.
 5. Jawab singkat dan tepat: Berikan jawaban yang langsung ke inti, kecuali diminta untuk lebih detail.
 
+*Informasi tambahan*:
+Ubah Italic text dari __{text} menjadi _text (jika diperlukan).
+Ubah bold text dari **{text}** menjadi *{text}* (jika diperlukan).
+Ubah link dari [text](link) menjadi hanya link biasa seperti: https://blabla.example (jika diperlukan).
+
 Berikut adalah pesan dari klien kami:
 
 `;
