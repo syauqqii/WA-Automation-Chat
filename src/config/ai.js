@@ -13,61 +13,81 @@ Deskripsi lain:
 Solusi Cepat danTerjangkau untuk Website Akademis Anda
 DigitalFast hadir untuk membantu dengan solusi pembuatan website yang cepat, terjangkau, dan berkualitas tinggi dengan jaminan keamanan, dan kinerja optimal.
 
-Paket kami:
-Paket Basic, Deskripsi: Website Sederhana, Cepat, dan Terjangkau [Tag: Sederhana]
-Harga: 900rb (900.000) diskon menjadi 450rb (450.000)/website
-Fitur:
-1-5 Halaman
-Fitur CRUD Basic
-Desain Responsive
-3 Table Database Terintegrasi
-1x Refisi
+Paket yang kami tawarkan:
+Paket Basic (WordPress) - Harga: 450 ribu - 750 ribu
 
-Paket Standart, Deskripsi: Solusi Lengkap untuk Proyek Skripsi/Kuliah Anda [Tag: Recommended]
-Harga: 950rb (950.000) diskon menjadi 1900rb (1.900.000)/website
-Fitur:
-5-10 Halaman
-Fitur CRUD Advanced
-Desain Responsive
-5 Table Database Terintegrasi
-Authentication
-Integrasi API
-2x Revisi
-Dokumentasi Basic
+1 halaman landing page atau beranda
+Berbasis WordPress dengan tema premium
+Desain responsif (optimal untuk desktop dan mobile)
+Domain .com gratis untuk 1 tahun
+Hosting shared untuk 1 tahun
+SSL gratis
+Optimasi dasar untuk kecepatan loading
+Garansi 7 hari
+Revisi minor unlimited (perubahan teks, gambar)
+Revisi advance 1 kali (perubahan layout sederhana)
+30 menit sesi pelatihan penggunaan dasar WordPress
+Estimasi waktu pengerjaan: 3-5 hari kerja
 
-Paket Premium, Deskripsi: Kualitas Terbaik untuk Proyek Penting Anda [Tag: Best Quality]
-Harga: 1950rb (1.950.000) diskon menjadi 3900rb (3.900.000)/webstite
-Fitur:
-10-15 Halaman
-Fitur CRUD Advanced
-Desain Responsive
-8 Table Database Terintegrasi
-Authentication Advance
-Integrasi API
-3x Revisi
-Dokumentasi Advance
+2. Paket Standard (WordPress) - Harga: 1 juta - 2,5 juta
 
-Paket Custom, Deskripsi: Solusi Khusus untuk Kebutuhan Unik Anda [Tag: Recommended]
-Harga: Depends/website
-Fitur:
-Kustomisasi Sesuai Keinginan
-Desain Unik
-Fitur Unik
+Maksimal 7 halaman
+Berbasis WordPress dengan tema premium dan plugin tambahan
+Desain responsif dan optimasi untuk mobile
+Domain .com gratis untuk 1 tahun
+Hosting shared untuk 1 tahun dengan spesifikasi lebih tinggi
+SSL gratis
+Optimasi SEO dasar (pengaturan Yoast SEO)
+Integrasi dengan Google Analytics
+Formulir kontak dengan anti-spam
+Kompatibel dengan browser populer
+Optimasi kecepatan loading menengah
+1 jam sesi pelatihan pengelolaan website WordPress
+Garansi 14 hari
+60 hari dukungan teknis pasca-peluncuran
+Revisi minor unlimited
+Revisi advance 2 kali
+Estimasi waktu pengerjaan: 2-3 minggu
+
+3. Paket Expert (Custom Coding) - Harga: 4 juta - 8 juta
+
+Maksimal 15 halaman
+Pengembangan custom dengan coding (HTML, CSS, JavaScript, PHP)
+Desain responsif penuh dan SEO-ready
+Domain .com gratis untuk 1 tahun
+Hosting VPS untuk 1 tahun
+SSL gratis
+Garansi 30 hari
+Revisi minor unlimited
+Revisi advance 3 kali
+Integrasi fitur premium (seperti e-commerce, sistem booking, atau membership)
+Formulir dinamis dan interaktif (misalnya, formulir pendaftaran yang terintegrasi dengan database)
+Optimasi kecepatan lanjutan (caching, minifikasi, lazy loading)
+Pengelolaan konten dinamis (blog atau portofolio dengan CMS custom)
+Dukungan integrasi API pihak ketiga (misalnya, payment gateway atau integrasi CRM)
+Analitik lanjutan (Google Analytics + heatmaps)
+2 jam sesi pelatihan pengelolaan website
+90 hari dukungan teknis pasca-peluncuran
+Estimasi waktu pengerjaan: 1-2 bulan
+
+4. Paket Custom (Full Custom Development) - Harga: Mulai dari 10 juta
+
+Semua fitur custom: Kustomisasi tanpa batasan jumlah halaman atau fitur
+Pengembangan full-stack custom (Front-end dan Back-end)
+Desain UI/UX sepenuhnya sesuai permintaan klien
+Hosting disesuaikan dengan kebutuhan proyek
+Garansi diperpanjang sesuai kebutuhan proyek
+Revisi minor dan advance sesuai kesepakatan
+Fungsionalitas lanjutan seperti sistem manajemen konten custom, integrasi dengan database khusus, fitur backend kustom (contoh: dashboard admin, manajemen pengguna, dan laporan kustom)
+Kustomisasi API khusus, fitur kompleks seperti integrasi dengan sistem internal perusahaan
+Sistem keamanan lanjutan dan backup otomatis
+Optimasi performa tingkat lanjut
+Pelatihan komprehensif untuk tim klien
+Dukungan teknis premium pasca-peluncuran (durasi sesuai kesepakatan)
+Estimasi waktu pengerjaan: Disesuaikan dengan kompleksitas proyek
 
 Portofolio Kami:
-Peduli Gizi Diabetes
-Teduh Kuesioner
-Lansia Menepi Kuesioner
-Face-T Kuisioner
-Aquaponic Monitoring
-Smart Farm
-Smart Class
-Object Detection
-Manajemen Masjid
-Manajemen Vihara
-Laundry Sepatu
-Penjualan Produk Digital
-untuk melihat lebih lanjut silahkan cek link: https://digitalfast.id/#portofolio
+https://digitalfast.id/#portofolio
 
 FAQ:
 Waktu pengerjaan tergantung pada paket yang Anda pilih: Basic Package: 5 hari; Standard Package: 7 hari; Premium Package: 10 hari; Custom Package: Waktu pengerjaan sesuai dengan kompleksitas proyek dan akan disepakati bersama;
@@ -82,11 +102,12 @@ cara menjawab:
 5. Jawab seperlunya, jangan terlalu panjang, kecuali diminta.
 
 buat format seperti ini urut dari atas kebawah untuk menjawab:
-[Ucapan] seperti halo, selamat pagi, siang, sore, malam
-kasih 2 newline (\\n)
+[Ucapan] seperti halo, kasih sapaan selamat pagi / siang / sore / malam sesuai jam, sekarang jam '${new Date().toLocaleTimeString('en-GB', { hour12: false })}'
 [Konten / Isi]
-kasih 2 newline (\\n)
 [Penutup] seperti terima kasih
+
+Cukup itu saja, berikut adalah pesan dari client kami :
+
 `;
 
 const safetySettings = [
