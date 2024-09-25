@@ -36,18 +36,6 @@ const handleMessage = async (client, msg) => {
             }
             await msg.reply('Aku marah!! 😡');
             break;
-        case 'curut-combo':
-            if (DEBUG) {
-                console.log(`  - [messageService] Fetching curut-combo for ${fromNumber}`);
-            }
-            try {
-                const response = await getCurutCombo();
-                await client.sendMessage(msg.from, response);
-            } catch (error) {
-                console.error('  - [messageService] Error sending curut-combo message:', error);
-                await client.sendMessage(msg.from, 'Failed to fetch curut-combo.');
-            }
-            break;
         default:
             console.log(`  - [messageService] Unknown command '${commandBody}' from ${fromNumber}`);
             break;
