@@ -2,7 +2,7 @@ const aiService = require('./aiService');
 
 const PREFIX_COMMAND = process.env.PREFIX_COMMAND || '.';
 const DEBUG = parseInt(process.env.DEBUG) === 1;
-const IS_NEED_CS = parseInt(process.env.IS_NEED_CS) === 1
+let IS_NEED_CS = parseInt(process.env.IS_NEED_CS) === 1
 
 const listContact = new Map();
 const RESET_INTERVAL_HOURS = 5 * 60 * 60 * 1000;
@@ -56,6 +56,10 @@ const handleMessage = async (client, msg) => {
                 await client.sendMessage(msg.from, "Maaf, terjadi kesalahan saat memproses permintaan Anda.");
             }
         } else {
+            if (DEBUG) {
+                console.error("  - [messageService] Got message from: ", fromNumber);
+            }
+
             if (!listContact.has(msg.from)) {
                 await client.sendMessage(msg.from, responseMessage.trim());
                 listContact.set(msg.from, currentTime);
@@ -73,11 +77,13 @@ const handleMessage = async (client, msg) => {
             }
             await msg.reply('Aku marah!! 😡');
             break;
-        case 'ai-off':
+        case 'switch':
             if (DEBUG) {
-                console.log(`  - [messageService] AI Service OFF - Command from: ${fromNumber}`);
+                console.log(`  - [messageService] AI Service Switched - Command from: ${fromNumber}`);
             }
-            await IS_NEED_CS = 0
+            IS_NEED_CS = IS_NEED_CS === 1 ? 0 : 1;
+            const statusMessage = IS_NEED_CS === 1 ? 'AI service: ON' : 'AI service: OFF';
+            await msg.reply(statusMessage);
             break;
         default:
             console.log(`  - [messageService] Unknown command '${commandBody}' from ${fromNumber}`);
