@@ -1,8 +1,7 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
-const DEBUG = parseInt(process.env.DEBUG) === 1;
 
-const { handleMessage } = require('./messageService');
+const { handleMessage } = require("../services/messageService");
 
 exports.initializeWAClient = () => {
     return new Promise((resolve, reject) => {
@@ -30,9 +29,7 @@ exports.initializeWAClient = () => {
         });
 
         client.on('error', error => {
-            if (DEBUG) {
-                console.error('  - [waClientService] Error in WA client:', error);
-            }
+            console.error('  - [waClientService] Error in WA client:', error);
             reject(error);
         });
 

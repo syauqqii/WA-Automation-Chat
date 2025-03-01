@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const initRoutes = require('./routes/init');
-const { initializeWAClient } = require('./services/waClientService');
+const { initializeWAClient } = require("./clients/whatsapp_client");
 const limiter = require('./middleware/rateLimiter');
 const { logRoutes } = require('./middleware/logRoute');
 
