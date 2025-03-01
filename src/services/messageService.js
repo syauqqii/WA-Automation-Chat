@@ -1,4 +1,4 @@
-const aiService = require('./aiService');
+const AIService = require("./ai_service");
 
 const PREFIX_COMMAND = process.env.PREFIX_COMMAND || '.';
 const DEBUG = parseInt(process.env.DEBUG) === 1;
@@ -41,7 +41,7 @@ const handleMessage = async (client, msg) => {
                     if (DEBUG) {
                         console.log("  - [messageService] AI service from " + fromNumber);
                     }
-                    const aiResponse = await aiService(msg.body);
+                    const aiResponse = await AIService.GenerateAnswer(msg.body);
                     await client.sendMessage(msg.from, aiResponse);
                 } else {
                     if (!listContact.has(msg.from)) {
@@ -51,7 +51,7 @@ const handleMessage = async (client, msg) => {
                 }
             } catch (error) {
                 if (DEBUG) {
-                    console.error("  - [messageService] Failed to process AI response:", error);
+                    console.error("  - [messageService] Failed to process AI response:", error.message);
                 }
                 await client.sendMessage(msg.from, "Maaf, terjadi kesalahan saat memproses permintaan Anda.");
             }

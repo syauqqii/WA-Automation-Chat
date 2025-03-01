@@ -1,8 +1,19 @@
 const { HarmCategory, HarmBlockThreshold } = require("@google/generative-ai");
 
-const aiModel = "gemini-1.5-flash";
+const AI_MODEL = "gemini-1.5-flash";
 
-const initialCharacter = `
+const SAFETY_SETTINGS = [
+    {
+        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
+    },
+    {
+        category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
+    },
+];
+
+const SYSTEM_INSTRUCTION = `
 Anda adalah customer service dari DigitalFast.id di WhatsApp. Tugas Anda adalah membantu menjawab pertanyaan klien dengan informasi berikut:
 
 *Tagline*:
@@ -56,24 +67,10 @@ Anda bisa menyediakan hosting dan domain sendiri atau meminta bantuan kami untuk
 Ubah Italic text dari __{text} menjadi _text (jika diperlukan).
 Ubah bold text dari **{text}** menjadi *{text}* (jika diperlukan).
 Ubah link dari [text](link) menjadi hanya link biasa seperti: https://blabla.example (jika diperlukan).
-
-Berikut adalah pesan dari klien kami:
-
 `;
 
-const safetySettings = [
-    {
-        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-        threshold: HarmBlockThreshold.BLOCK_NONE,
-    },
-    {
-        category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-        threshold: HarmBlockThreshold.BLOCK_NONE,
-    },
-];
-
 module.exports = {
-    initialCharacter,
-    safetySettings,
-    aiModel
+    AI_MODEL,
+    SAFETY_SETTINGS,
+    SYSTEM_INSTRUCTION,
 };
