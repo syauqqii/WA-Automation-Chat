@@ -1,7 +1,7 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 
-const { handleMessage } = require("../services/messageService");
+const WhatsappHandler = require("../handlers/whatsapp_handler");
 
 exports.initializeWAClient = () => {
     return new Promise((resolve, reject) => {
@@ -35,7 +35,7 @@ exports.initializeWAClient = () => {
 
         client.on('message', async (msg) => {
             try {
-                await handleMessage(client, msg);
+                await WhatsappHandler.HandleMessage(client, msg);
             } catch (error) {
                 console.error(`  - [whatsapp_client] Error handling message: ${error.message}`);
             }

@@ -18,7 +18,7 @@ class WhatsappController {
 
             res.status(500).json({
                 success: false,
-                message: "Failed to send message",
+                message: error.message,
             });
         }
     }
@@ -40,7 +40,7 @@ class WhatsappController {
 
             res.status(500).json({
                 success: false,
-                message: "Failed to send message",
+                message: error.message,
             });
         }
     }
