@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const initRoutes = require('./routes/init');
 const { initializeWAClient } = require("./clients/whatsapp_client");
-const limiter = require('./middleware/rateLimiter');
+const limiter = require("./middlewares/limiter_middleware");
 
 const app = express();
 const HOST = process.env.HOST;
