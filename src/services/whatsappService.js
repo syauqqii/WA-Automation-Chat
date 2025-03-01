@@ -1,8 +1,7 @@
 const fs = require('fs');
 const { MessageMedia } = require('whatsapp-web.js');
 
-const delay = require('../helpers/delay');
-const { successResponse, errorResponse } = require('../helpers/responses');
+const GeneralUtil = require("../utils/general_util");
 
 const DEBUG = parseInt(process.env.DEBUG) === 1;
 const MIN_DELAY_EVERY_CHAT = parseInt(process.env.MIN_DELAY_EVERY_CHAT)
@@ -19,15 +18,15 @@ exports.sendMessage = async (client, to, text) => {
                 if (DEBUG) {
                     console.log(`  - [whatsappService] Message sent successfully to ${num}`);
                 }
-                results.push(successResponse(num));
+                results.push(GeneralUtil.SuccessResponse(num));
 
                 const delayTime = Math.floor(Math.random() * ((MAX_DELAY_EVERY_CHAT * 1000) - (MIN_DELAY_EVERY_CHAT * 1000) + 1) + (MIN_DELAY_EVERY_CHAT * 1000));
-                await delay(delayTime);
+                await GeneralUtil.Delay(delayTime);
             } catch (error) {
                 if (DEBUG) {
                     console.log('  - [whatsappService] Error sending message to ' + num + ': ' + error.message);
                 }
-                results.push(errorResponse(num, 'Failed to send message: ' + error.message));
+                results.push(GeneralUtil.ErrorResponse(num, 'Failed to send message: ' + error.message));
             }
         }
 
@@ -41,13 +40,13 @@ exports.sendMessage = async (client, to, text) => {
                 console.log(`  - [whatsappService] Message sent successfully to ${to}`);
             }
 
-            return successResponse(to);
+            return GeneralUtil.SuccessResponse(to);
         } catch (error) {
             if (DEBUG) {
                 console.log('  - [whatsappService] Error sending message to ' + to + ': ' + error.message);
             }
 
-            return errorResponse(to, 'Failed to send message: ' + error.message);
+            return GeneralUtil.ErrorResponse(to, 'Failed to send message: ' + error.message);
         }
     }
 };
@@ -69,15 +68,15 @@ exports.sendMediaMessage = async (client, tos, text, mediaFilePath) => {
                 if (DEBUG) {
                     console.log(`  - [whatsappService] Media message sent successfully to ${num}`);
                 }
-                results.push(successResponse(num));
+                results.push(GeneralUtil.SuccessResponse(num));
 
                 const delayTime = Math.floor(Math.random() * ((MAX_DELAY_EVERY_CHAT * 1000) - (MIN_DELAY_EVERY_CHAT * 1000) + 1) + (MIN_DELAY_EVERY_CHAT * 1000));
-                await delay(delayTime);
+                await GeneralUtil.Delay(delayTime);
             } catch (error) {
                 if (DEBUG) {
                     console.log(`  - [whatsappService] Failed to send media message to ${num}: ${error}`);
                 }
-                results.push(errorResponse(num, 'Failed to send media message: ' + error.message));
+                results.push(GeneralUtil.ErrorResponse(num, 'Failed to send media message: ' + error.message));
             }
         }
     } else {
@@ -89,12 +88,12 @@ exports.sendMediaMessage = async (client, tos, text, mediaFilePath) => {
             if (DEBUG) {
                 console.log(`  - [whatsappService] Media message sent successfully to ${tos}`);
             }
-            results.push(successResponse(tos));
+            results.push(GeneralUtil.SuccessResponse(tos));
         } catch (error) {
             if (DEBUG) {
                 console.log(`  - [whatsappService] Failed to send media message to ${tos}: ${error}`);
             }
-            results.push(errorResponse(tos, 'Failed to send media message: ' + error.message));
+            results.push(GeneralUtil.ErrorResponse(tos, 'Failed to send media message: ' + error.message));
         }
     }
 

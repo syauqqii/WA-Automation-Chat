@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "node src/app.js",
-    "new": "rm -rf .wwebjs_auth .wwebjs_cache && node app.js"
+    "new": "rm -rf .wwebjs_auth .wwebjs_cache && node src/app.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.22.0",
