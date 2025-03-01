@@ -2,10 +2,10 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const initRoutes = require('./src/routes/init');
-const { initializeWAClient } = require('./src/services/waClientService');
-const limiter = require('./src/middleware/rateLimiter');
-const { logRoutes } = require('./src/middleware/logRoute');
+const initRoutes = require('./routes/init');
+const { initializeWAClient } = require('./services/waClientService');
+const limiter = require('./middleware/rateLimiter');
+const { logRoutes } = require('./middleware/logRoute');
 
 const app = express();
 const HOST = process.env.HOST;

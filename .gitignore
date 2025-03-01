@@ -1,5 +1,30 @@
-# Ignore f*c*ing node_modules directory
+# Node.js dependencies
 node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
 
-# Ignore f*c*ing Node Persist directory
-.node-persist/
+# Environment variables
+# .env
+
+# Log files
+logs/
+*.log
+
+# Build output
+dist/
+build/
+coverage/
+
+# Editor specific
+.vscode/
+.idea/
+*.swp
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Others
+.wwebjs_auth
+.wwebjs_cache
