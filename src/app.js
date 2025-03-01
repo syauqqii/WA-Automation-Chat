@@ -2,7 +2,8 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const initRoutes = require('./routes/init');
+
+const InitialRoutes = require("./routes");
 const { initializeWAClient } = require("./clients/whatsapp_client");
 const limiter = require("./middlewares/limiter_middleware");
 
@@ -13,7 +14,7 @@ const DEBUG = parseInt(process.env.DEBUG) === 1;
 const IS_NEED_CS = parseInt(process.env.IS_NEED_CS) === 1;
 
 app.use(cors());
-app.use(limiter);
+app.use(limiter.getConfig());
 app.use(express.json());
 
 console.clear();
@@ -21,7 +22,7 @@ console.log('\n [INFORMATION] Checking your session... *(be patient)\n');
 
 initializeWAClient().then(client => {
     app.locals.client = client;
-    initRoutes(app, client);
+    InitialRoutes(app, client);
 
     console.clear();
     app.listen(PORT, () => {

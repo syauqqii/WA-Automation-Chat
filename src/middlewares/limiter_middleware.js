@@ -19,9 +19,9 @@ class LimiterMiddleware {
         });
     }
 
-    getMiddleware() {
+    getConfig() {
         return this.limiter;
     }
 }
 
-module.exports = new LimiterMiddleware().getMiddleware();
+module.exports = new LimiterMiddleware();

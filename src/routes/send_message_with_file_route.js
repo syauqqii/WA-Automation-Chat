@@ -16,7 +16,7 @@ const upload = multer({ storage: storage });
 module.exports = (client) => {
     const router = express.Router();
 
-    router.post('/', upload.single('mediaFile'), (req, res) => {
+    router.post('/', upload.single('file'), (req, res) => {
         WhatsappController.SendMessageWithFile(client, req, res);
     });
 
