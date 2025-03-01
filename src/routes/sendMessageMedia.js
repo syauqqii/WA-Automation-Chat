@@ -1,6 +1,6 @@
 const express = require('express');
 const multer = require('multer');
-const { sendMessageMedia } = require('../controllers/messageController');
+const WhatsappController = require('../controllers/whatsapp_controller');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -17,7 +17,7 @@ module.exports = (client) => {
     const router = express.Router();
 
     router.post('/', upload.single('mediaFile'), (req, res) => {
-        sendMessageMedia(client, req, res);
+        WhatsappController.SendMessageWithFile(client, req, res);
     });
 
     return router;

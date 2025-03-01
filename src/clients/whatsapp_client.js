@@ -24,12 +24,12 @@ exports.initializeWAClient = () => {
         });
 
         client.on('auth_failure', msg => {
-            console.error(' [Error] Auth failure:', msg);
+            console.error(' [Error] Auth failure: ', msg);
             reject(new Error('Auth failure'));
         });
 
         client.on('error', error => {
-            console.error('  - [waClientService] Error in WA client:', error);
+            console.error(`  - [whatsapp_client] Error in WA client: ${error.message}`);
             reject(error);
         });
 
@@ -37,7 +37,7 @@ exports.initializeWAClient = () => {
             try {
                 await handleMessage(client, msg);
             } catch (error) {
-                console.error('  - [waClientService] Error handling message:', error);
+                console.error(`  - [whatsapp_client] Error handling message: ${error.message}`);
             }
         });
 

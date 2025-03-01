@@ -5,7 +5,6 @@ const cors = require('cors');
 const initRoutes = require('./routes/init');
 const { initializeWAClient } = require("./clients/whatsapp_client");
 const limiter = require('./middleware/rateLimiter');
-const { logRoutes } = require('./middleware/logRoute');
 
 const app = express();
 const HOST = process.env.HOST;
@@ -28,8 +27,7 @@ initializeWAClient().then(client => {
     app.listen(PORT, () => {
         if (DEBUG) {
             console.log(`\n > [Info] Whatsapp number active: +${client.info.wid.user} (${client.info.pushname}) ${IS_NEED_CS ? "[AI Active]" : ""}`);
-            console.log(`\n > [Info] Server is running: http://${HOST}:${PORT}`);
-            console.log(logRoutes(app));
+            console.log(`\n > [Info] Server is running: http://${HOST}:${PORT}\n`);
             console.log(' > [Docs] URL: https://github.com/syauqqii/WA-Automation-Chat\n')
         } else {
             console.log(`\n > Server is running: http://${HOST}:${PORT}\n`);
