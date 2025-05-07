@@ -1,35 +1,80 @@
-# WhatsApp Automation: Customer Service AI with Gemini API & Backend Endpoint for Campaign Marketing
-_WA Automation Chat is a project that utilizes ~~@open-wa/wa-automate~~ whatsapp-web.js for automating WhatsApp messages. This project allows you to send WhatsApp messages automatically using an Express API._  
+# 📱 WhatsApp Automation: Customer Service AI with Gemini API & Backend Endpoint for Campaign Marketing
 
-Make sure you have Postman, Node.js, and NPM installed before running this project.  
+WA Automation Chat is a project that automates WhatsApp messages using ~~`@open-wa/wa-automate`~~ `whatsapp-web.js`. It provides a backend endpoint for campaign marketing and customer service automation via the Gemini API (optional).
 
-## Features  
-- Uses ~~@open-wa/wa-automate~~ whatsapp-web.js for WhatsApp message automation.  
+## 🚀 Features
+- Uses ~~`@open-wa/wa-automate`~~ `whatsapp-web.js` for WhatsApp message automation.
 - Implements Express with `express-rate-limit` to create an API with the `/send-message` or `/send-message-with-file` endpoint.  
-- Uses dotenv to manage environment variables.  
-- Integrates Gemini AI API for customer service (if needed).
+- Provides an Express API with endpoints for sending messages:
+    - `/send-message`: Send text messages.
+    - `/send-message-with-file:` Send messages with media files.
+- Uses dotenv for environment variable management.
+- Rate limiting with express-rate-limit. 
+- Integrates with Gemini AI API for customer service automation (optional).
 
-## How to use (Video [Click Here](https://drive.google.com/file/d/1mb6Gpw3ecujCo18Rfj9OS0lqv6rfrBNE/view?usp=sharing))
-1. Clone this repository
+## 🎬 Demo
+
+[How to use (Video)](https://drive.google.com/file/d/1mb6Gpw3ecujCo18Rfj9OS0lqv6rfrBNE/view?usp=sharing)
+
+## 🛠️ Installation and Setup
+
+Clone this repository
 ```
 git clone https://github.com/syauqqii/WA-Automation-Chat
 ```
-2. Navigate to the WA-Automation-Chat directory
+
+Navigate to the Project Directory
+
 ```
 cd WA-Automation-Chat
 ```
-3. Instal dependencies
+
+Install Dependencies
+
 ```
 npm install
 ```
-4. Configure variables in the `.env` file
-5. Start the application
+
+Configure Environment Variables, open a `.env` file in the project root:
+
+```bash
+# setting for SERVER
+HOST=localhost
+PORT=4437
+
+# set for DEBUG [1 / 0], default: 1
+DEBUG=1
+
+# set message prefix command symbol
+PREFIX_COMMAND=.
+
+# setting for APPLICATION, default: [10 Requests/1 Minute]
+LIMIT_MINUTES=1 # Minute, Default: 1
+LIMIT_REQUEST=10 # Request, Default: 10
+
+# setting for chat delay if array
+MIN_DELAY_EVERY_CHAT=3 # Seconds, Default: 3
+MAX_DELAY_EVERY_CHAT=5 # Seconds, Default: 5
+BATCH_SIZE=5 # Bulk Sending Message, Default: 5
+
+# gemini option, IS_NEED_CS [1 / 0], default: 0
+ACTIVATE_AI=0
+GEMINI_API_KEY=
+```
+
+Start the Application
+
 ```
 npm start
 ```
-6. Use the following endpoints to send WhatsApp messages `/send-message` and `/send-message-with-file`
 
-## Endpoint + Params (Tested in Postman)
+## 🌐 API Endpoints
+
+**Headers**
+```bash
+Content-Type: application/json
+```
+
 **[RAW] Send Message (Single Message)**
 ```bash
 [POST] http://localhost:4437/send-message
@@ -79,3 +124,14 @@ data :
     "file":<SELECT FROM YOUR PERSONAL COMPUTER>
 }
 ```
+
+## 🧩 Integration with Gemini API (Optional)
+
+If you want to add customer service automation:
+- Get your Gemini API key.
+- Add the key to the `.env` file:
+```bash
+ACTIVATE_AI=1
+GEMINI_API_KEY=your-gemini-api-key
+```
+- Adjust your request payload to include the necessary parameters for Gemini AI.
